@@ -33,7 +33,7 @@ Rather than assuming a specific functional form, the analysis systematically com
  
 An initial scatterplot with a default LOESS smoother reveals a non-monotonic relationship — fecundity appears to dip around 1 hour of exposure, recover around 3 hours, then decline again at higher exposures. The wide spread of points suggests high within-group variability.
  
-![Exploratory plot](Results/exploratory_plot.png)
+![Exploratory plot](Results/exploratory%20plot.png)
  
 ---
  
@@ -51,11 +51,11 @@ heat <- lm(Fecundity ~ poly(Exposure, 3, raw = FALSE), data = heat.df)
 - Mild heteroscedasticity present but not severe
 The 3rd-degree polynomial captures the broad non-linear trend while providing 95% confidence bands.
  
-![3rd degree polynomial with 95% confidence bands](Results/third_degree_polynomial_with_95_confidence_bands.png)
+![3rd degree polynomial with 95% confidence bands](Results/third%20degree%20polynomial%20with%2095%20confidence%20bands.png)
  
 **Residual diagnostics:**
  
-![Residual diagnostic plots](Results/residual_diagnostic_plot.png)
+![Residual diagnostic plots](Results/residual%20diagnostic%20plot.png)
  
 ---
  
@@ -78,9 +78,9 @@ fit <- ksmooth(heat.df$Exposure, heat.df$Fecundity, bandwidth = hm, kernel = "no
  
 The `hcv()` function selects the bandwidth that minimises cross-validation error. The CV curve (inset in the plot below) shows a clear minimum around h ≈ 0.4, confirming that moderate smoothing is data-optimal.
  
-![sm package CV bandwidth selection](Results/sm_pakage_kernel_output.png)
+![sm package CV bandwidth selection](Results/sm%20pakage%20kernel%20output.png)
  
-![Kernel regression — bandwidth comparison](Results/kernel_regression_comparison.png)
+![Kernel regression — bandwidth comparison](Results/kernel%20regression%20comparison.png)
  
 ---
  
@@ -94,7 +94,7 @@ The `hcv()` function selects the bandwidth that minimises cross-validation error
 | 0.4 | Moderate smoothing — captures main trend |
 | 1.0 | Near-linear — underfits the curvature |
  
-![Smoothing splines — span comparison](Results/smoothing_spline_comparison.png)
+![Smoothing splines — span comparison](Results/smoothing%20spline%20comparison.png)
  
 ---
  
@@ -110,7 +110,7 @@ bsp3 <- lm(Fecundity ~ bs(Exposure, df = 5), data = heat.df)
  
 Higher df produces more flexible fits; df = 3–4 gave the most interpretable curves without overfitting.
  
-![B-spline regression — df comparison](Results/B-spline_df_comparison.png)
+![B-spline regression — df comparison](Results/B-spline%20df%20comparison.png)
  
 ---
  
@@ -118,7 +118,7 @@ Higher df produces more flexible fits; df = 3–4 gave the most interpretable cu
  
 All four methods are overlaid on a single plot for direct visual comparison:
  
-![All fitted curves — comparison](Results/various_types_of_fitted_curves.png)
+![All fitted curves — comparison](Results/various%20types%20of%20fitted%20curves.png)
  
 | Method | Strengths | Weaknesses |
 |---|---|---|
@@ -182,7 +182,3 @@ Ensure `heat.txt` is in your working directory, or update the path in `read.tabl
 `R` · `ggplot2` · `sm` · `splines` · `splines2` · `ksmooth` · `smooth.spline` · `loess`
  
 ---
- 
-## Context
- 
-This project was completed as part of a Data Science graduate programme. It demonstrates practical application of non-parametric statistical modelling to an ecological research question, covering the full workflow from exploratory analysis through model selection and diagnostic checking.
